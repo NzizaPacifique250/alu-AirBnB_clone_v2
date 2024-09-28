@@ -73,8 +73,8 @@ class HBNBCommand(cmd.Cmd):
                 pline = pline[2].strip()  # pline is now str
                 if pline:
                     # check for *args or **kwargs
-                    if pline[0] =='{' and pline[-1] =='}'\
-                            and type(eval(pline)) ==dict:
+                    if pline[0] =='{' and pline[-1] == '}'\
+                            and type(eval(pline)) is dict:
                         _args = pline
                     else:
                         _args = pline.replace(',', '')
@@ -132,7 +132,7 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     try:
                         value = eval(value)
-                    except:
+                    except NameError or SyntaxError:
                         continue
                 new_dict[key] = value
                 
@@ -202,7 +202,7 @@ class HBNBCommand(cmd.Cmd):
         key = c_name + "." + c_id
 
         try:
-            del(storage.all()[key])
+            del storage.all()[key]
             storage.save()
         except KeyError:
             print("** no instance found **")
