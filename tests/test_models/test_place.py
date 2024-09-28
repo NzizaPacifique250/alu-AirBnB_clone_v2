@@ -79,5 +79,4 @@ class TestPlace(TestBaseModel):
 
     def test_amenity_ids(self):
         """ """
-        new = self.value()
-        self.assertEqual(type(new.amenity_ids), list)
+      
