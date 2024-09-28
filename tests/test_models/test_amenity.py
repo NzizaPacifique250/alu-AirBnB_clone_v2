@@ -3,8 +3,9 @@
 from tests.test_models.test_base_model import TestBaseModel
 from models.amenity import Amenity
 
-class test_Amenity(TestBaseModel):
-    """ """
+
+class TestAmenity(TestBaseModel):
+    """ Test for amenity"""
 
     def __init__(self, *args, **kwargs):
         """ """
@@ -15,4 +16,5 @@ class test_Amenity(TestBaseModel):
     def test_name2(self):
         """ """
         new = self.value()
+        new.name = "amenity"
         self.assertEqual(type(new.name), str)

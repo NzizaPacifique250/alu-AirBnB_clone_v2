@@ -9,7 +9,7 @@ import os
 
 
 class TestBaseModel(unittest.TestCase):
-    """ This is the Test Base Model """
+    """ Test base model"""
 
     def __init__(self, *args, **kwargs):
         """ """
@@ -58,7 +58,7 @@ class TestBaseModel(unittest.TestCase):
         n = {None: None}
         with self.assertRaises(TypeError):
             new = self.value(**n)
-            
+
     def test_id(self):
         """ """
         new = self.value()
@@ -69,13 +69,11 @@ class TestBaseModel(unittest.TestCase):
         new = self.value()
         self.assertEqual(type(new.created_at), datetime.datetime)
 
-def test_updated_at(self):
-    """Test updated_at is a datetime object and close to created_at."""
-    new = self.value()
-    self.assertEqual(type(new.updated_at), datetime.datetime)
-    n = new.to_dict()
-    new = BaseModel(**n)
-    
-    self.assertAlmostEqual(new.created_at.timestamp(), 
-                           new.updated_at.timestamp(), delta=1)
-
+    def test_updated_at(self):
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.updated_at), datetime.datetime)
+        n = new.to_dict()
+        new = BaseModel(**n)
+        self.assertAlmostEqual(new.created_at.timestamp(),
+                               new.updated_at.timestamp(), delta=1)

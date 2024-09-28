@@ -11,6 +11,10 @@ class TestPlace(TestBaseModel):
 
     def __init__(self, *args, **kwargs):
         """ """
+        super().__init__(*args, **kwargs)
+        self.name = "Place"
+        self.value = Place
+
     def test_city_id(self):
         """ """
         new = self.value()
@@ -75,3 +79,5 @@ class TestPlace(TestBaseModel):
 
     def test_amenity_ids(self):
         """ """
+        new = self.value()
+        self.assertEqual(type(new.amenity_ids), list)
