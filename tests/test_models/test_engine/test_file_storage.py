@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ Module for testing file storage"""
 import unittest
-from models.base_model import BaseModel
-from models import storage
+
 import models
+from models.base_model import BaseModel
 import os
 
 
@@ -26,7 +26,7 @@ class TestFileStorage(unittest.TestCase):
             os.remove('file.json')
         except:
             pass
-        
+
         del self.storage
 
     def test_obj_list_empty(self):
@@ -38,7 +38,7 @@ class TestFileStorage(unittest.TestCase):
         new = BaseModel()
         for obj in self.storage.all().values():
             temp = obj
-        self.assertTrue(temp is obj)
+            self.assertTrue(temp is obj)
 
     def test_all(self):
         """ __objects is properly returned """
@@ -72,7 +72,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage.reload()
         for obj in self.storage.all().values():
             loaded = obj
-        self.assertEqual(new.to_dict()['id'], loaded.to_dict()['id'])
+            self.assertEqual(new.to_dict()['id'], loaded.to_dict()['id'])
 
     def test_reload_empty(self):
         """ Load from an empty file """
@@ -105,7 +105,7 @@ class TestFileStorage(unittest.TestCase):
         _id = new.to_dict()['id']
         for key in self.storage.all().keys():
             temp = key
-        self.assertEqual(temp, 'BaseModel' + '.' + _id)
+            self.assertEqual(temp, 'BaseModel' + '.' + _id)
 
     def test_storage_var_created(self):
         """ FileStorage object storage created """
