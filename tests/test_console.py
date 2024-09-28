@@ -3,10 +3,10 @@
 Contains the class TestConsoleDocs
 """
 
-import console
 import inspect
 import pep8
 import unittest
+import console
 
 HBNBCommand = console.HBNBCommand
 
@@ -43,7 +43,7 @@ class TestConsoleDocs(unittest.TestCase):
     def test_HBNBCommand_class_docstring(self):
         """Test for the HBNBCommand class docstring"""
 
-        self.assertIsNot(HBNBCommand.__doc__, None, 
+        self.assertIsNot(HBNBCommand.__doc__, None,
                          "HBNBCommand class needs a docstring")
-        self.assertTrue(len(HBNBCommand.__doc__) >= 1, 
+        self.assertTrue(len(HBNBCommand.__doc__) >= 1,
                         "HBNBCommand class needs a docstring")
