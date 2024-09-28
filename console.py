@@ -135,6 +135,7 @@ class HBNBCommand(cmd.Cmd):
                     except:
                         continue
                 new_dict[key] = value
+                
         new_instance = HBNBCommand.classes[class_name[0]](**new_dict)
         storage.save()
         print(new_instance.id)
@@ -278,7 +279,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         # first determine if kwargs or args
-        if '{' in args[2] and '}' in args[2] and type(eval(args[2])) ==dict:
+        if '{' in args[2] and '}' in args[2] and type(eval(args[2])) == dict:
             kwargs = eval(args[2])
             args = []  # reformat kwargs into list, ex: [<name>, <value>, ...]
             for k, v in kwargs.items():
